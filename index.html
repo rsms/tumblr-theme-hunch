@@ -1,0 +1,1048 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{block:PostTitle}{PostTitle} – {/block:PostTitle}{Title}</title>
+    <meta name="description" content="{MetaDescription}">
+    <link rel="shortcut icon" href="http://static.tumblr.com/9njdies/Crol8jema/signature.png">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <style type="text/css">
+      @font-face {
+        font-family: 'M+ 1m';
+        font-style: normal;
+        font-weight: 300;
+        src: local('M+ 1m light'), local('mplus-1m-light'),
+             url('http://hunch.se/style/fonts/mplus-1m-light.ttf') 
+             format('truetype');
+      }
+      /* Base */
+      * { margin:0; padding:0; font-family:inherit; }
+      body {
+        background:white; color:#030303;
+        font:13px 'M+ 1m', georgia, serif;
+        line-height:18px;
+        font-weight: lighter;
+        margin: 0 auto;
+        width: 640px;
+      }
+
+      p, ul, ol, pre, blockquote, hr, object { margin: 1em 0; }
+      img { border:none; vertical-align:bottom; }
+      strong { font-weight:bold; }
+      hr { height:1px; border:none; background-color:#ddd; }
+
+      h1,h2,h3,h4 {
+        font-family: 'Helvetica Neue', helvetica, sans-serif;
+        color:#333;
+        margin: 1.618em 0 1em 0;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizelegibility;
+      }
+      h1 { font-size: 18px; }
+      h2,h3,h4,h5,h6 { font-size: 14px; }
+      h3 { color:#666; }
+      h4,h5,h6 { color:#888; }
+      h5,h6 { font-size:12px; }
+
+      a { text-decoration:none; }
+      a:link, a:active { color:#316d96; }
+      a:visited { color:#7e5494; }
+      a:link:hover, a:active:hover, a:visited:hover {
+        text-decoration:underline;
+      }
+      a:link:hover, a:active:hover { color:#006be4; }
+      a:visited:hover { color:#af00cf; }
+      a > img { margin-bottom:-1px; }
+      a.img { border:none; background:transparent !important; }
+
+      /* Headlines */
+      h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a, h1 > a:hover,
+          h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+        color:inherit !important;
+        background-color:transparent !important;
+      }
+
+      /* head */
+      #head {
+        border-bottom: 1px dashed #ddd;
+        /*margin-left:-999em; margin-right:-999em;
+        padding-left:999em; padding-right:999em;*/
+        margin-left:-999em; padding-left:999em;
+        padding-top:1em;
+        padding-bottom:1em;
+      }
+        #head h1 { font-size: 2em; margin:0; }
+          #head h1 a {
+            display:block;
+            background: 
+                url(http://static.tumblr.com/9njdies/Crol8jema/signature.png)
+                no-repeat scroll top left;
+            width: 81px;
+            height: 31px;
+            margin-left:-2px;
+          }
+            #head h1 a span { display:none; }
+        #head p.description {
+          font:9px 'lucida grande', 'tahoma', sans-serif;
+          color: #ccc;
+        }
+        #head ul.navigation {
+          text-align: left;
+          float: right;
+        }
+        #head ul.navigation li {
+          display: inline-block;
+          list-style: none;
+          margin-left: 1em;
+        }
+        #head ul.navigation li:first-child { margin-left: 0; }
+        #head ul.navigation li a {
+          color: #888;
+          text-decoration: none;
+          font-size: 11px;
+        }
+        #head ul.navigation li a:hover { color: #000; }
+
+      /* main */
+      #main { margin-bottom: 3em; }  
+
+      /* posts */
+      div.post {
+        border-bottom: 1px dashed #ddd;
+        margin-top: 1.5em; margin-bottom: 1.5em;
+        margin-left:-999em; padding-left:999em;
+        page-break-before: always;
+      }
+        div.post h1:first-child { margin-top:0; }
+        div.post div.body {}
+          div.post div.body img { max-width:100%; }
+          div.post div.body *[align=right] {
+            margin-left:1em; margin-bottom:1em;
+          }
+        div.post strong {
+          font-weight:inherit;
+          background:#FBF4B1;
+        }
+        div.post li { margin-left: 2em; margin-bottom:0.3em; }
+        div.post ul > li { margin-left:1.4em; }
+        div.post blockquote {
+          padding-left:30px;
+          background: transparent 
+              url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+              no-repeat scroll 0 0;
+          font-style:italic;
+        }
+          /*div.post blockquote > p {
+            padding-left:0.6em;
+            border-left:0.4em solid #ddd;
+          }*/
+        div.post div.quotation blockquote { margin-left:-30px; }
+        div.post pre {
+          font-family: 'M+ 1m', monospace;
+          background-color:#eee;
+          padding:0.4em 1em;
+          border-left:2px solid #ddd;
+        }
+        div.post div.body :target { background:#fe0; }
+        div.post div.body sup:target a { padding:2px 5px; }
+        div.post div.footnotes li { color:#999; }
+        div.post div.footnotes li:target { background:#ffc; color:inherit; }
+
+        /* prettyprint */
+        div.post pre .str { color: #080; }
+        div.post pre .kwd { color: #295AA4; }
+        div.post pre .com { color: #999; }
+        div.post pre .typ { color: #808; }
+        div.post pre .lit { color: #066; }
+        div.post pre .pun, div.post pre .opn, div.post pre .clo { color: #660; }
+        div.post pre .pln { color: #000; }
+        div.post pre .tag { color: #008; }
+        div.post pre .atn { color: #606; }
+        div.post pre .atv { color: #080; }
+        div.post pre .dec { color: #606; }
+        /* Use higher contrast and font-styling for printable form. */
+        @media print {
+          div.post pre .str { color: #060; }
+          div.post pre .kwd { color: #006; font-weight: bold; }
+          div.post pre .com { color: #999; font-style: italic; }
+          div.post pre .typ { color: #404; font-weight: bold; }
+          div.post pre .lit { color: #044; }
+          div.post pre .pun, div.post pre .opn, div.post pre .clo {
+            color: #440;
+          }
+          div.post pre .pln { color: #000; }
+          div.post pre .tag { color: #006; font-weight: bold; }
+          div.post pre .atn { color: #404; }
+          div.post pre .atv { color: #060; }
+        }
+
+      /* meta */
+      div.meta { margin:1em 0; }
+        div.meta p, div.meta .item { margin:0; }
+        div.meta .item, div.meta .tag {
+          background-repeat:no-repeat;
+          background-position:0 0.36em;
+          padding-left:15px;
+          color:black;
+          opacity:0.4;
+          display:block;
+          float:left;
+          margin-left:2em;
+        }
+        div.meta .item:hover { opacity:1.0; }
+        div.meta .item:first-child { margin-left:0; }
+        div.meta .item a, div.meta a.item, div.meta .item a:hover,
+            div.meta a.item:hover {
+          color:inherit;
+        }
+        div.meta .item.reblogged {
+          background-image:
+              url(http://static.tumblr.com/9njdies/592l8jd17/reblogged.png);
+        }
+        div.meta .item.tags { padding-left:0; }
+          div.meta .tag {
+            margin-left:1em;
+            margin-right:0;
+            opacity:1.0;
+            background-image:
+                url(http://static.tumblr.com/9njdies/YO7l8jd2b/tag.png);
+          }
+          div.meta .tag:first-child { margin-left:0; }
+        div.meta .item.time {
+          background-image:
+              url(http://static.tumblr.com/9njdies/zkFl8jd2w/time.png);
+          float:right;
+        }
+        div.meta .item.note-count {
+          float:right;
+          background-image:
+              url(http://static.tumblr.com/9njdies/ykvl8nmzz/note-count.png);
+        }
+        div.meta .item.dsq-comment-count {
+          float:right;
+          background-image:
+              url(http://static.tumblr.com/9njdies/dbPl8uqid/comment-count.png);
+          display:none;
+        }
+
+    /* notes */
+    #notes {
+      border-bottom: 1px dashed #ddd;
+      margin-left:-999em; padding-left:999em;
+      padding-bottom:1em;
+    }
+    #notes ol.notes { list-style:none; margin-top:0; }
+      #notes ol.notes li { margin-left:0; }
+      #notes ol.notes blockquote {
+        background-color:#eee;
+                border-radius:9px;
+        -webkit-border-radius:9px;
+           -moz-border-radius:9px;
+        padding:0.618em 1em;
+        margin:0.5em 0 1.5em 1em;
+        display:inline-block;
+      }
+      #notes div.left-margin-icon {
+        float:left;
+        margin-left:-30px;
+        width:11px;
+        height:28px;
+        background:
+            url(http://static.tumblr.com/9njdies/ykvl8nmzz/note-count.png)
+            no-repeat scroll 0 5px;
+        opacity:0.3;
+      }
+
+      /* pagenav */
+      #pagenav {
+        background:#ddd;
+        margin: 2em 0 0 0;
+        padding:0 0.5em;
+      }   
+        #pagenav .inside {
+          text-align: center;
+          position: relative;
+        }
+        #pagenav a.back, #pagenav a.forward, #pagenav .pages {
+          font-size: 11px;
+          color: #ccc;
+          text-transform: uppercase;
+        }
+        #pagenav a:link, #pagenav a:active, #pagenav a:visited,
+            #pagenav .pages {
+          color: #666;
+        }
+        #pagenav a:link:hover, #pagenav a:active:hover,
+            #pagenav a:visited:hover {
+          color: #000;
+        }
+        #pagenav a.back {
+          float:left;
+          text-align: left;
+        }
+        #pagenav a.forward {
+          float: right;
+          text-align: right;
+        }
+
+      #footer {
+        font-size: 11px;
+        margin-bottom: 0px;
+        margin-top: 1em;
+      }
+
+      .small { font-size: 11px; color: #999; }
+      div.breaker { clear:both; }
+
+      {CustomCSS}
+    </style>
+  </head>
+  <body>
+    <div id="head">
+      <ul class="navigation">
+        {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+        <li><a href="http://hunch.se/">About me</a></li>
+      </ul>
+      <h1><a href="/" title="{Title}"><span>{Title}</span></a></h1>
+      <p class="description">{Description}</p>
+    </div>
+    <div id="main">
+    {block:Posts}
+      {block:Text}
+      <div class="post">
+        {block:Title}<h1 class="title"><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+        <div class="body">
+          {Body}
+          <div class="breaker"></div>
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Text}
+
+      {block:Photo}
+      <div class="post">
+        <div class="body">
+          <p>{LinkOpenTag}<img src="{PhotoURL-HighRes}" class="photo" alt="{PhotoAlt}">{LinkCloseTag}</p>
+          {block:Caption}
+          {Caption}
+          {/block:Caption}
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Photo}
+
+      {block:Link}
+      <div class="post">
+        <div class="body">
+          <p><a href="{URL}" class="link-title" {Target}>{Name}</a><p>{block:Description}   {Description} {/block:Description}</p>
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Link}
+
+      {block:Video}
+      <div class="post">
+        <div class="body">
+          <p>{Video-500}<p>{block:Caption} {Caption} {/block:Caption}
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Video}
+
+      {block:Quote}
+      <div class="post" class="quotation">
+        <div class="body">
+          <blockquote>&ldquo;{Quote}&rdquo;</blockquote><p class="cite">{block:Source}&mdash; {Source}{/block:Source}</p>
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Quote}
+
+      {block:Audio}
+      <div class="post">
+        <div class="body">
+          <p>{AudioPlayerWhite}<p>{block:ExternalAudio}<a href="{ExternalAudioURL}">Download</a>{/block:ExternalAudio}</p>{block:Caption}{Caption}{/block:Caption}
+          <span class="small">Played {FormattedPlayCount} time(s).</span>
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Audio}
+
+      {block:Chat}
+      <div class="post" class="chat">
+        {block:Title}<h1 class="title">{Title}</h1>{/block:Title}
+        <div class="body">
+          <ul>
+            {block:Lines}
+            <li class="{Alt}">{block:Label}<span class="label">{Label}</span>{/block:Label}&nbsp;{Line}</li>
+            {/block:Lines}
+          </ul>
+        </div>
+        <div class="meta">
+          {block:RebloggedFrom}<p class="item reblogged small"><a href="{ReblogParentURL}">{ReblogParentTitle}</a></span>{/block:RebloggedFrom}
+          {block:HasTags}<p class="item tags small">{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+          {block:Date}<p class="item time small"><a href="{Permalink}" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">{TimeAgo}</a></p>{/block:Date}
+          {block:NoteCount}<a class="item note-count small" href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}
+          <a class="item dsq-comment-count small" href="{Permalink}#disqus_thread" data-disqus-identifier="{PostID}">-</a>
+          <div class="breaker"></div>
+        </div>
+      </div>
+      {/block:Chat}
+    {/block:Posts}
+
+{block:PostNotes}<div id="notes"><div class="left-margin-icon">&nbsp;</div>{PostNotes}</div>{/block:PostNotes}
+
+<!-- start disqus -->
+<script type="text/javascript">
+var disqus_shortname = 'hunch';
+var disqus_url = "{Permalink}";
+var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+</script>
+{block:Permalink}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_identifier = "{PostID}";
+</script>
+<script src="http://hunch.disqus.com/embed.js" async="async"></script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hunch">comments powered by Disqus.</a></noscript>
+{/block:Permalink}
+<script src="http://disqus.com/forums/hunch/count.js" async="true"></script>
+<script>
+// this hack takes care of formatting # comments
+(function(){
+var v = document.getElementsByClassName('dsq-comment-count');
+var loaded = false;
+var polle;
+for (var i=0;i<v.length;i++) {
+  var e = v.item(i);
+  if (e.firstChild.nodeValue === '-') {
+    polle = e.firstChild;
+    break;
+  }
+}
+function onload() {
+  for (var i=0;i<v.length;i++) {
+    var e = v.item(i);
+    if (e.firstChild.nodeValue !== '0 and 0') {
+      var m = e.firstChild.nodeValue.split(' ');
+      e.firstChild.nodeValue = String(parseInt(m[0]) + parseInt(m[2]));
+      e.style.display = 'inline';
+    }
+  }
+}
+if (polle) {
+  var timer = setInterval(function(){
+    if (polle.nodeValue !== '-') {
+      clearInterval(timer);
+      onload();
+    }
+  },100);
+}
+})();
+</script>
+<!-- end disqus -->
+
+      <div id="pagenav">
+        <div class="inside">
+          {block:IndexPage} 
+            <a class="back"{block:NextPage} href="{NextPage}"{/block:NextPage}>&larr;&nbsp;Older</a>
+            <span class="pages">Page {CurrentPage} of {TotalPages}</span>
+            <a class="forward"{block:PreviousPage} href="{PreviousPage}"{/block:PreviousPage}>More recent&nbsp;&rarr;</a>
+          {/block:IndexPage}
+          {block:PermalinkPagination}
+            <a class="back"{block:PreviousPost} href="{PreviousPost}"{/block:PreviousPost}>&larr;&nbsp;Older post</a>
+            <span class="pages">&nbsp;</span>
+            <a class="forward"{block:NextPost} href="{NextPost}"{/block:NextPost}>More recent post&nbsp;&rarr;</a>
+          {/block:PermalinkPagination}
+          <div class="breaker"></div>
+        </div>
+      </div>
+
+      <div id="footer">
+        Copyright &copy; <a href="http://hunch.se/">Rasmus Andersson</a> —
+        Original work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-Share Alike license</a>.
+        Access <a href="/archive">the archive</a> to find older posts.
+        This blog is hosted by <a href="http://www.tumblr.com/">Tumblr</a>.
+      </div>
+    </div><!-- #main -->
+    <script>
+    (function() {
+      // prettify: div#main > div.post code
+      var main = document.getElementById('main'),
+          re = /^#\!(\w+)\s*\n/, first_post, should_prettyprint;
+      for (var i=0,cn=main.childNodes;i<cn.length; i++) {
+        var e = cn.item(i);
+        if (e.className === 'post') {
+          if (!first_post) first_post = e;
+          var codes = e.getElementsByTagName('code');
+          should_prettyprint = !!codes.length;
+          for (var x=0;x<codes.length;x++) {
+            var code = codes.item(x), lang = '', m, fc = code.firstChild;
+            if (m = re.exec(fc.nodeValue)) {
+              fc.nodeValue = fc.nodeValue.replace(re, '');
+              lang = ' lang-'+m[1];
+            }
+            code.className = 'prettyprint'+lang;
+          }
+        }
+      }
+      // anything to prettify?
+      if (should_prettyprint) {
+        window.PR_TAB_WIDTH = 2;
+        var s = document.createElement('script');
+        s.type = 'text/javascript'; s.async = true;
+        s.src = 'http://static.tumblr.com/9njdies/asKl8skdk/prettify.js';
+        var p = document.getElementsByTagName('script')[0]; 
+        p.parentNode.insertBefore(s, p);
+      }
+      
+      {block:PostTitle}
+      // take care of 404
+      function on404() {
+        var old_paths = {
+"/2009/07/gitblog": {path:"/post/1133604523/gitblog",title:"Gitblog"},
+"/2009/07/spotify-for-iphone": {path:"/post/1133604685/spotify-for-iphone",title:"Spotify for the iPhone"},
+"/2009/08/gitblog-admin-ui": {path:"/post/1133605197/gitblog-admin-ui",title:"Gitblog admin user interface"},
+"/2009/09/dropub-1-0": {path:"/post/1102105416/dropub-1-0",title:"DroPub 1.0"},
+"/2009/09/embedded-http-server-in-smisk-1-1-7": {path:"/post/1102105450/embedded-http-server-in-smisk-1-1-7",title:"Embedded HTTP server in Smisk 1.1.7"},
+"/2009/09/how-i-wrote-dropub-in-two-days": {path:"/post/1102105505/how-i-wrote-dropub-in-two-days",title:"How I wrote DroPub in two days"},
+"/2009/09/introduction-to-cocui": {path:"/post/1102105543/introduction-to-cocui",title:"Introduction to Cocui"},
+"/2009/10/comethttp-push-with-nginx": {path:"/post/1102105581/comethttp-push-with-nginx",title:"Comet/HTTP push with nginx"},
+"/2002/11/construction": {path:"/post/1121202947/construction",title:"Construction"},
+"/2002/11/deployment": {path:"/post/1121202979/deployment",title:"Deployment"},
+"/2002/12/breakin-cartoons": {path:"/post/1121203010/breakin-cartoons",title:"Breakin' Cartoons"},
+"/2002/12/wonderful": {path:"/post/1121203057/wonderful",title:"Wonderful"},
+"/2002/30/new-site": {path:"/post/1121203094/new-site",title:"New Site"},
+"/2002/31/boat": {path:"/post/1121203132/boat",title:"Boat"},
+"/2002/07/im-back": {path:"/post/1121203162/im-back",title:"I'm Back"},
+"/2002/11/a-wonderful-film": {path:"/post/1121203204/a-wonderful-film",title:"A wonderful film!"},
+"/2002/11/looplabs": {path:"/post/1121203234/looplabs",title:"LoopLabs"},
+"/2002/14/new-cv": {path:"/post/1121203279/new-cv",title:"New CV"},
+"/2002/20/partypix": {path:"/post/1121203313/partypix",title:"Partypix"},
+"/2002/23/leif-dogtown": {path:"/post/1121203343/leif-dogtown",title:"LEIF & Dogtown"},
+"/2002/24/woohaa": {path:"/post/1121203386/woohaa",title:"Woohaa!"},
+"/2002/25/terrorists": {path:"/post/1121203423/terrorists",title:"Terrorists"},
+"/2002/02/flajmcom-update": {path:"/post/1121203458/flajmcom-update",title:"Flajm.com update"},
+"/2002/07/photos-2": {path:"/post/1121203502/photos-2",title:"Photos"},
+"/2002/08/film-section": {path:"/post/1121203534/film-section",title:"Film Section"},
+"/2002/10/100000000": {path:"/post/1121203566/100000000",title:"100.000.000"},
+"/2002/11/photos": {path:"/post/1121203604/photos",title:"Photos"},
+"/2002/14/daniel-andersson": {path:"/post/1121203637/daniel-andersson",title:"Daniel Andersson"},
+"/2002/15/cluedos-up": {path:"/post/1121203673/cluedos-up",title:"Cluedo's Up"},
+"/2002/16/cannes": {path:"/post/1121203707/cannes",title:"Cannes"},
+"/2002/19/birthday-party": {path:"/post/1121203742/birthday-party",title:"Birthday Party"},
+"/2002/20/crazy-videos": {path:"/post/1121204034/crazy-videos",title:"Crazy Videos"},
+"/2002/22/playing-with-fire": {path:"/post/1121204095/playing-with-fire",title:"Playing with Fire"},
+"/2002/23/print-web": {path:"/post/1121204149/print-web",title:"Print & Web"},
+"/2002/24/embryo-cloning": {path:"/post/1121204199/embryo-cloning",title:"Embryo Cloning"},
+"/2002/25/site-update-2": {path:"/post/1121204241/site-update-2",title:"Site Update"},
+"/2002/26/iecss-sec-exploit": {path:"/post/1121204302/iecss-sec-exploit",title:"IECSS Sec Exploit"},
+"/2002/28/le-theatre": {path:"/post/1121204356/le-theatre",title:"Le Theatre"},
+"/2002/30/my-lifestory": {path:"/post/1121204394/my-lifestory",title:"My Lifestory"},
+"/2002/31/nominerad": {path:"/post/1121204433/nominerad",title:"Nominerad"},
+"/2002/31/specialarbete": {path:"/post/1121204471/specialarbete",title:"Specialarbete"},
+"/2002/02/photo-update-3": {path:"/post/1121204508/photo-update-3",title:"Photo Update"},
+"/2002/03/backdoor": {path:"/post/1121204547/backdoor",title:"Backdoor"},
+"/2002/03/thanx": {path:"/post/1121204583/thanx",title:"Thanx"},
+"/2002/04/quicktime-6": {path:"/post/1121204619/quicktime-6",title:"Quicktime 6"},
+"/2002/08/graduated": {path:"/post/1121204656/graduated",title:"Graduated"},
+"/2002/11/crazy-address": {path:"/post/1121204686/crazy-address",title:"Crazy address"},
+"/2002/12/craazy-girl": {path:"/post/1121204715/craazy-girl",title:"Craazy Girl"},
+"/2002/13/hunk": {path:"/post/1121204761/hunk",title:"Hunk"},
+"/2002/15/count-bmi": {path:"/post/1121204805/count-bmi",title:"Count BMI"},
+"/2002/15/new-issue": {path:"/post/1121204847/new-issue",title:"New Issue"},
+"/2002/16/sweden-cries": {path:"/post/1121204878/sweden-cries",title:"Sweden Cries"},
+"/2002/22/midsummer": {path:"/post/1121204919/midsummer",title:"Midsummer"},
+"/2002/23/missed-emails": {path:"/post/1121204952/missed-emails",title:"Missed Emails"},
+"/2002/24/tragedy": {path:"/post/1121204994/tragedy",title:"Tragedy"},
+"/2002/25/no-tragedy": {path:"/post/1121205033/no-tragedy",title:"No Tragedy"},
+"/2002/26/sp1-for-xp": {path:"/post/1121205065/sp1-for-xp",title:"SP1 for XP"},
+"/2002/27/love-or-money": {path:"/post/1121205101/love-or-money",title:"Love or Money?"},
+"/2002/28/lovely-teddy": {path:"/post/1121205142/lovely-teddy",title:"Lovely Teddy"},
+"/2002/29/wp-redesign": {path:"/post/1121205455/wp-redesign",title:"WP Redesign"},
+"/2002/30/go-go-brazil": {path:"/post/1121205494/go-go-brazil",title:"Go Go Brazil!"},
+"/2002/30/smaland": {path:"/post/1121205525/smaland",title:"Sm\u00e5land"},
+"/2002/01/member": {path:"/post/1121205565/member",title:"Member"},
+"/2002/05/fisheye-3": {path:"/post/1121205593/fisheye-3",title:"Fisheye #3"},
+"/2002/11/vacation": {path:"/post/1121205646/vacation",title:"Vacation"},
+"/2002/13/lookilooki": {path:"/post/1121205678/lookilooki",title:"Lookilooki"},
+"/2002/13/trollhattan": {path:"/post/1121205707/trollhattan",title:"Trollh\u00e4ttan"},
+"/2002/15/minimalism": {path:"/post/1121205731/minimalism",title:"Minimalism"},
+"/2002/18/outstanding": {path:"/post/1121205769/outstanding",title:"Outstanding"},
+"/2002/27/world-premiere": {path:"/post/1121205816/world-premiere",title:"World Premiere"},
+"/2002/28/gotland": {path:"/post/1121205854/gotland",title:"Gotland"},
+"/2002/28/oh-what-a-day": {path:"/post/1121205899/oh-what-a-day",title:"Oh what a day!"},
+"/2002/05/shit": {path:"/post/1121205943/shit",title:"Shit!"},
+"/2002/06/home-and-happy": {path:"/post/1121205981/home-and-happy",title:"Home and happy"},
+"/2002/06/portra-400bw": {path:"/post/1121206012/portra-400bw",title:"Portra 400BW"},
+"/2002/12/the-good-the-bad": {path:"/post/1121206049/the-good-the-bad",title:"The Good & The Bad"},
+"/2002/13/gotland-photos": {path:"/post/1121206087/gotland-photos",title:"Gotland Photos"},
+"/2002/14/craaazy-video": {path:"/post/1121206125/craaazy-video",title:"Craaazy Video"},
+"/2002/14/flashy": {path:"/post/1121206177/flashy",title:"Flashy"},
+"/2002/15/the-madlabs-up": {path:"/post/1121206222/the-madlabs-up",title:"The MadLab's up"},
+"/2002/16/intrusion": {path:"/post/1121206257/intrusion",title:"Intrusion!"},
+"/2002/18/todays-news-2": {path:"/post/1121206296/todays-news-2",title:"Todays news"},
+"/2002/23/todays-news": {path:"/post/1121206321/todays-news",title:"Todays News"},
+"/2002/01/heeey-babee": {path:"/post/1121206364/heeey-babee",title:"Heeey babee!"},
+"/2002/08/whos-your-daddy": {path:"/post/1121206397/whos-your-daddy",title:"Whos your daddy"},
+"/2002/08/ya-mama-is": {path:"/post/1121206434/ya-mama-is",title:"Ya mama is!"},
+"/2002/09/elgoog": {path:"/post/1121206470/elgoog",title:"elgooG"},
+"/2002/09/ovenholm-p5": {path:"/post/1121206507/ovenholm-p5",title:"Ovenholm p5"},
+"/2002/12/hd-unt-10k": {path:"/post/1121206544/hd-unt-10k",title:"HD   \u00fcnt 10k"},
+"/2002/12/le-flash-week": {path:"/post/1121206588/le-flash-week",title:"Le Flash week"},
+"/2002/15/follow-the-last-hour": {path:"/post/1121206624/follow-the-last-hour",title:"Follow the last hour"},
+"/2002/17/cool-movies": {path:"/post/1121206656/cool-movies",title:"Cool movies"},
+"/2002/18/ursakta-roran": {path:"/post/1121206695/ursakta-roran",title:"Urs\u00e4kta R\u00f6ran"},
+"/2002/21/mommy": {path:"/post/1121206729/mommy",title:"Mommy!"},
+"/2002/24/arre-sigmund": {path:"/post/1121206773/arre-sigmund",title:"Arre + Sigmund = ?"},
+"/2002/02/dont-read-ur-mail": {path:"/post/1121206803/dont-read-ur-mail",title:"Dont read ur mail"},
+"/2002/05/pjuuuuuhh": {path:"/post/1121206833/pjuuuuuhh",title:"Pjuuuuuhh...!"},
+"/2002/09/moby-book": {path:"/post/1121206864/moby-book",title:"Moby + Book"},
+"/2002/15/stylefreak": {path:"/post/1121206903/stylefreak",title:"Stylefreak"},
+"/2002/16/hanna": {path:"/post/1121206951/hanna",title:"Hanna"},
+"/2002/17/beckmans-beckmans": {path:"/post/1121206995/beckmans-beckmans",title:"Beckmans, Beckmans!"},
+"/2002/17/swoosh-logotypes": {path:"/post/1121207032/swoosh-logotypes",title:"Swoosh logotypes"},
+"/2002/21/think-of": {path:"/post/1121207076/think-of",title:"Think of...."},
+"/2002/21/updates": {path:"/post/1121207114/updates",title:"Updates..."},
+"/2002/22/job-of-your-dreams": {path:"/post/1121207146/job-of-your-dreams",title:"Job of your dreams..."},
+"/2002/24/bafe-a-la-version-4": {path:"/post/1121207184/bafe-a-la-version-4",title:"Baf\u00e9 a la version 4"},
+"/2002/24/popcorn-2002": {path:"/post/1121207216/popcorn-2002",title:"Popcorn 2002"},
+"/2002/28/well-then-its-autumn": {path:"/post/1121207243/well-then-its-autumn",title:"Well, then it's autumn"},
+"/2002/29/chill-statistics": {path:"/post/1121207281/chill-statistics",title:"Chill & Statistics"},
+"/2002/09/uddevallas-in-war": {path:"/post/1121207303/uddevallas-in-war",title:"Uddevalla's in war"},
+"/2002/17/web-section-updated": {path:"/post/1121207336/web-section-updated",title:"Web-section updated"},
+"/2002/18/hiptothehop": {path:"/post/1121207395/hiptothehop",title:"Hiptothehop..."},
+"/2002/18/junkyard-redesign": {path:"/post/1121207504/junkyard-redesign",title:"Junkyard redesign"},
+"/2002/18/this-morning": {path:"/post/1121207621/this-morning",title:"This morning...."},
+"/2002/20/swedense": {path:"/post/1121207724/swedense",title:"Sweden.se"},
+"/2002/22/dont-miss-out": {path:"/post/1121207850/dont-miss-out",title:"Don't miss out!"},
+"/2002/02/net-server": {path:"/post/1121207986/net-server",title:".Net Server"},
+"/2002/03/congratulations": {path:"/post/1121208143/congratulations",title:"Congratulations"},
+"/2002/15/old-gets-new": {path:"/post/1121208252/old-gets-new",title:"Old gets New"},
+"/2002/21/google-zeitgeist": {path:"/post/1121208351/google-zeitgeist",title:"Google Zeitgeist"},
+"/2002/22/julsmask": {path:"/post/1121208460/julsmask",title:"Julsmask"},
+// unreadable (from tumblr API)  2002/12/28-camphovden-02
+"/2003/07/hanna-and-madeleine": {path:"/post/1133043029/hanna-and-madeleine",title:"Hanna and Madeleine"},
+"/2003/11/stuff": {path:"/post/1133043068/stuff",title:"Stuff"},
+"/2003/13/one-fur-all-studios": {path:"/post/1133043109/one-fur-all-studios",title:"One Fur All Studios"},
+"/2003/15/announcing-rp13": {path:"/post/1133043153/announcing-rp13",title:"Announcing RP13"},
+"/2003/16/rp13-is-finaly-here": {path:"/post/1133043199/rp13-is-finaly-here",title:"RP13 is finaly here"},
+"/2003/19/up-or-downgrade": {path:"/post/1133043248/up-or-downgrade",title:"Up or downgrade?"},
+"/2003/20/skatan-shoots-it-nice": {path:"/post/1133043283/skatan-shoots-it-nice",title:"Skatan shoots it nice"},
+"/2003/21/movies-and-blessings": {path:"/post/1133043330/movies-and-blessings",title:"Movies and Blessings"},
+"/2003/23/new-scans": {path:"/post/1133043886/new-scans",title:"New Scans"},
+"/2003/24/camphovden-photos": {path:"/post/1133044037/camphovden-photos",title:"CampHovden Photos"},
+"/2003/24/good-afternoon": {path:"/post/1133044077/good-afternoon",title:"good afternoon"},
+"/2003/27/photo-update-2": {path:"/post/1133044120/photo-update-2",title:"photo update"},
+"/2003/27/shake-your-coconuts": {path:"/post/1133044166/shake-your-coconuts",title:"Shake your coconuts"},
+"/2003/28/the-e-bomb": {path:"/post/1133044205/the-e-bomb",title:"The E-Bomb"},
+"/2003/28/wisemoorcom": {path:"/post/1133044244/wisemoorcom",title:"Wisemoor.com"},
+"/2003/29/grafisk-forum-update": {path:"/post/1133044289/grafisk-forum-update",title:"Grafisk Forum update"},
+"/2003/29/new-wallpapa-2": {path:"/post/1133044330/new-wallpapa-2",title:"New Wallpapa"},
+"/2003/01/ante-do-the-update": {path:"/post/1133044378/ante-do-the-update",title:"Ante Do The Update"},
+"/2003/02/party-pics": {path:"/post/1133044417/party-pics",title:"Party pics"},
+"/2003/03/artsweden-delayed": {path:"/post/1133044475/artsweden-delayed",title:"artSweden delayed"},
+"/2003/09/tagtime": {path:"/post/1133044534/tagtime",title:"Tagtime"},
+"/2003/10/daily-reminder": {path:"/post/1133044586/daily-reminder",title:"daily reminder"},
+"/2003/14/biber-power": {path:"/post/1133044642/biber-power",title:"Biber power"},
+"/2003/14/dont-do-it": {path:"/post/1133044694/dont-do-it",title:"don't do it."},
+"/2003/14/happy-valentine": {path:"/post/1133044736/happy-valentine",title:"Happy Valentine"},
+"/2003/14/work-that-body": {path:"/post/1133044804/work-that-body",title:"Work that body"},
+"/2003/16/no-war-so-long": {path:"/post/1133044845/no-war-so-long",title:"No war so long..."},
+"/2003/24/gratulations-mate": {path:"/post/1133044885/gratulations-mate",title:"gratulations mate"},
+"/2003/24/twp-general-update": {path:"/post/1133044934/twp-general-update",title:"TWP General Update"},
+"/2003/25/as-need-you": {path:"/post/1133044968/as-need-you",title:"as need you"},
+"/2003/25/new-digital-slr": {path:"/post/1133045014/new-digital-slr",title:"new digital slr"},
+"/2003/01/new-wallpapa": {path:"/post/1133045055/new-wallpapa",title:"new wallpapa"},
+"/2003/05/five-greek-gerbils": {path:"/post/1133045098/five-greek-gerbils",title:"Five greek gerbils"},
+"/2003/06/andreas-18yrs": {path:"/post/1133045138/andreas-18yrs",title:"andreas = 18yrs"},
+"/2003/09/16-hours": {path:"/post/1133045184/16-hours",title:"16 hours?"},
+"/2003/10/buy-my-stuff": {path:"/post/1133045238/buy-my-stuff",title:"Buy my stuff"},
+"/2003/11/eight-icons": {path:"/post/1133045277/eight-icons",title:"eight icons"},
+"/2003/11/im-a-switcher": {path:"/post/1133045309/im-a-switcher",title:"i'm a switcher"},
+"/2003/12/international-style": {path:"/post/1133045354/international-style",title:"International style"},
+"/2003/12/madlabs-back": {path:"/post/1133045396/madlabs-back",title:"madlab's back"},
+"/2003/13/gf-battle-settled": {path:"/post/1133045439/gf-battle-settled",title:"GF Battle settled"},
+"/2003/14/clone-13": {path:"/post/1133045488/clone-13",title:"Clone 13"},
+"/2003/15/30-cinema-display": {path:"/post/1133045529/30-cinema-display",title:"30\" cinema display"},
+"/2003/15/more-apple-rumors": {path:"/post/1133045583/more-apple-rumors",title:"More apple rumors"},
+"/2003/16/artsweden-released": {path:"/post/1133045616/artsweden-released",title:"artsweden released"},
+"/2003/19/workload": {path:"/post/1133045677/workload",title:"workload"},
+"/2003/21/le-manchester": {path:"/post/1133045720/le-manchester",title:"Le Manchester"},
+"/2003/25/flajmcom-5-released": {path:"/post/1133045949/flajmcom-5-released",title:"Flajm.com 5 released"},
+"/2003/26/that-white-stuff": {path:"/post/1133045996/that-white-stuff",title:"That white stuff"},
+"/2003/28/new-dalsa-hdcam": {path:"/post/1133046038/new-dalsa-hdcam",title:"New Dalsa HDCAM"},
+"/2003/31/kendrion-premiere": {path:"/post/1133046084/kendrion-premiere",title:"Kendrion premiere"},
+"/2003/02/programmatic-goodies": {path:"/post/1133046125/programmatic-goodies",title:"programmatic goodies"},
+"/2003/06/final-cut-pro-4": {path:"/post/1133046171/final-cut-pro-4",title:"final cut pro 4"},
+"/2003/12/great-northern": {path:"/post/1133046211/great-northern",title:"Great Northern"},
+"/2003/12/m15-release": {path:"/post/1133046262/m15-release",title:"m15 release"},
+"/2003/13/human-gnome-release": {path:"/post/1133046346/human-gnome-release",title:"human gnome release"},
+"/2003/15/new-soda-issue": {path:"/post/1133046404/new-soda-issue",title:"new soda issue"},
+"/2003/16/photo-update": {path:"/post/1133046472/photo-update",title:"photo update"},
+"/2003/21/site-update": {path:"/post/1133046566/site-update",title:"site update"},
+"/2003/23/sars-decoded": {path:"/post/1133046654/sars-decoded",title:"SARS decoded"},
+"/2003/27/gf-battle-2": {path:"/post/1133046733/gf-battle-2",title:"GF Battle 2"},
+"/2003/28/my-new-little-baby": {path:"/post/1133046796/my-new-little-baby",title:"my new little baby"},
+"/2003/02/idiologic": {path:"/post/1133046859/idiologic",title:"Idiologic"},
+"/2003/04/thnx-lookom": {path:"/post/1133046918/thnx-lookom",title:"thnx lookom"},
+"/2003/06/powerbook": {path:"/post/1133046975/powerbook",title:"PowerBook"},
+"/2003/10/italy": {path:"/post/1133047016/italy",title:"Italy"},
+"/2003/21/alchemy-with-light": {path:"/post/1133047059/alchemy-with-light",title:"Alchemy with light"},
+"/2003/23/chriss-new-porfolio": {path:"/post/1133047112/chriss-new-porfolio",title:"Chris's new porfolio"},
+"/2003/26/vodafone-advertising": {path:"/post/1133047149/vodafone-advertising",title:"Vodafone Advertising"},
+"/2003/27/new-haircut-and-wine": {path:"/post/1133047186/new-haircut-and-wine",title:"New haircut and wine"},
+"/2003/28/cv-update": {path:"/post/1133047233/cv-update",title:"cv update"},
+"/2003/04/beckmans": {path:"/post/1133047283/beckmans",title:"Beckmans"},
+"/2003/05/speedway-showcase": {path:"/post/1133047330/speedway-showcase",title:"speedway + showcase"},
+"/2003/13/novemberfestivalen": {path:"/post/1133047374/novemberfestivalen",title:"Novemberfestivalen"},
+"/2003/14/better-now-than-never": {path:"/post/1133068432/better-now-than-never",title:"better now than never"},
+"/2003/17/flash-illustration": {path:"/post/1133068558/flash-illustration",title:"flash illustration"},
+"/2003/18/greg-packer": {path:"/post/1133068592/greg-packer",title:"Greg Packer"},
+"/2003/19/tiny-sony-computers": {path:"/post/1133068645/tiny-sony-computers",title:"tiny sony computers"},
+"/2003/23/illustration-galore": {path:"/post/1133068692/illustration-galore",title:"illustration galore"},
+"/2003/25/ola-moller": {path:"/post/1133068728/ola-moller",title:"ola m\u00f6ller"},
+"/2003/02/new-giant-speciemen": {path:"/post/1133068786/new-giant-speciemen",title:"new giant speciemen?"},
+"/2003/03/mill-hired-by-benassi": {path:"/post/1133068833/mill-hired-by-benassi",title:"Mill hired by Benassi"},
+"/2003/10/library-is-king": {path:"/post/1133068887/library-is-king",title:"Library is King"},
+"/2003/12/tee-crazy-aunt": {path:"/post/1133068938/tee-crazy-aunt",title:"Tee + Crazy aunt"},
+"/2003/21/espresso-updates": {path:"/post/1133068998/espresso-updates",title:"espresso + updates"},
+"/2003/31/kalas-hovden": {path:"/post/1133069065/kalas-hovden",title:"kalas & hovden"},
+"/2003/02/appies-goes-live": {path:"/post/1133069117/appies-goes-live",title:"appies goes live"},
+"/2003/13/the-human-kind": {path:"/post/1133069160/the-human-kind",title:"the human kind"},
+"/2003/14/veen-huis": {path:"/post/1133069203/veen-huis",title:"Veen Huis"},
+"/2003/20/hello-world": {path:"/post/1133069246/hello-world",title:"hello world"},
+"/2003/21/my-first-java-app": {path:"/post/1133069287/my-first-java-app",title:"my first java app"},
+"/2003/24/hovden-stitch": {path:"/post/1133069332/hovden-stitch",title:"Hovden Stitch"},
+"/2003/06/seminar-in-october": {path:"/post/1133069371/seminar-in-october",title:"Seminar in october"},
+"/2003/29/kyle-balda-stuff": {path:"/post/1133069423/kyle-balda-stuff",title:"Kyle Balda + stuff"},
+"/2003/03/moves-rioalto": {path:"/post/1133069467/moves-rioalto",title:"moves + Rioalto"},
+"/2003/22/bye-elliot-smith": {path:"/post/1133069528/bye-elliot-smith",title:"bye elliot smith"},
+"/2003/26/im-with-panther": {path:"/post/1133069567/im-with-panther",title:"I'm with Panther"},
+"/2003/02/get-an-update": {path:"/post/1133069613/get-an-update",title:"Get an update"},
+"/2003/05/simplecvs-12": {path:"/post/1133069669/simplecvs-12",title:"SimpleCVS 1.2"},
+"/2003/11/did-some-updatin": {path:"/post/1133069715/did-some-updatin",title:"did some updatin'"},
+"/2003/16/sigmund-update": {path:"/post/1133069778/sigmund-update",title:"Sigmund update"},
+"/2003/18/hylander-update": {path:"/post/1133069826/hylander-update",title:"Hylander update"},
+"/2004/14/le-new-site": {path:"/post/1133069867/le-new-site",title:"le new site"},
+"/2004/02/engan-more": {path:"/post/1133069916/engan-more",title:"Engan + more"},
+"/2004/05/things-have-happened": {path:"/post/1133069956/things-have-happened",title:"things have happened"},
+"/2004/17/hunk-shirt": {path:"/post/1133070026/hunk-shirt",title:"Hunk-shirt"},
+"/2004/21/illustrations-stuff": {path:"/post/1133070070/illustrations-stuff",title:"illustrations & stuff"},
+"/2004/04/bafe-neue": {path:"/post/1133070117/bafe-neue",title:"Baf\u00e9 neue"},
+"/2004/29/hi-mr-everyone": {path:"/post/1133070151/hi-mr-everyone",title:"hi mr everyone"},
+"/2004/07/le-projects": {path:"/post/1133070192/le-projects",title:"Le Projects"},
+"/2004/17/clickclick": {path:"/post/1133070252/clickclick",title:"clickclick"},
+"/2004/20/fake-makes": {path:"/post/1133070292/fake-makes",title:"Fake makes"},
+"/2004/22/young-guns-2004": {path:"/post/1133070336/young-guns-2004",title:"Young guns 2004"},
+"/2004/26/effect-ive": {path:"/post/1133070379/effect-ive",title:"effect-ive?"},
+"/2004/27/ib-plugin": {path:"/post/1133070451/ib-plugin",title:"IB plugin"},
+"/2004/27/tennis-and-photos": {path:"/post/1133070497/tennis-and-photos",title:"tennis and photos"},
+"/2004/28/server-switch": {path:"/post/1133070542/server-switch",title:"server switch"},
+"/2004/29/cv-and-stuff": {path:"/post/1133070588/cv-and-stuff",title:"cv and stuff"},
+"/2004/31/new-imac": {path:"/post/1133070628/new-imac",title:"new imac"},
+"/2004/10/le-design-news": {path:"/post/1133070673/le-design-news",title:"le design news"},
+"/2004/14/americans-and-ikea": {path:"/post/1133070719/americans-and-ikea",title:"Americans and Ikea"},
+"/2004/30/fresh-desk-typo": {path:"/post/1133070769/fresh-desk-typo",title:"fresh desk typo"},
+"/2004/03/make-a-dmg": {path:"/post/1133070818/make-a-dmg",title:"make a DMG"},
+"/2004/04/twentyfour-supreme": {path:"/post/1133070868/twentyfour-supreme",title:"twentyfour supreme"},
+"/2004/11/radioio": {path:"/post/1133070914/radioio",title:"radioio"},
+"/2004/15/xml-service": {path:"/post/1133070969/xml-service",title:"xml service"},
+"/2004/20/news-from-formac": {path:"/post/1133071003/news-from-formac",title:"News from Formac"},
+"/2004/22/bruhn-sydsvenskan": {path:"/post/1133071038/bruhn-sydsvenskan",title:"Bruhn + Sydsvenskan"},
+"/2004/27/gta-for-nintendo-8-bit": {path:"/post/1133071091/gta-for-nintendo-8-bit",title:"GTA for nintendo 8-bit"},
+"/2004/05/milky-feeling": {path:"/post/1133071143/milky-feeling",title:"milky feeling"},
+"/2004/13/andreas-bostrom": {path:"/post/1133071201/andreas-bostrom",title:"andreas bostr\u00f6m"},
+"/2004/11/a-little-catch-up": {path:"/post/1133071280/a-little-catch-up",title:"a little catch-up"},
+"/2005/09/welcome-isak": {path:"/post/1133071336/welcome-isak",title:"welcome Isak"},
+"/2005/11/historys-first-mac-rumor": {path:"/post/1133071399/historys-first-mac-rumor",title:"historys first mac rumor"},
+"/2005/12/please-disturb": {path:"/post/1133071446/please-disturb",title:"please disturb"},
+"/2005/12/writing-apple-history": {path:"/post/1133071487/writing-apple-history",title:"writing apple-history"},
+"/2005/30/this-was-fun": {path:"/post/1133071543/this-was-fun",title:"this was fun"},
+"/2005/31/steve-and-the-tie": {path:"/post/1133071582/steve-and-the-tie",title:"steve and the tie"},
+"/2005/13/pussokram": {path:"/post/1133082317/pussokram",title:"Pussokram"},
+"/2005/14/death-star-fo-real": {path:"/post/1133082361/death-star-fo-real",title:"Death star fo real"},
+"/2005/07/andreashackedfly": {path:"/post/1133082407/andreashackedfly",title:"andreas/hacked/fly"},
+"/2005/09/i-hate-windows": {path:"/post/1133082445/i-hate-windows",title:"i hate windows"},
+"/2005/16/spray-start-update": {path:"/post/1133082481/spray-start-update",title:"spray start update"},
+"/2005/17/google-os-x": {path:"/post/1133082522/google-os-x",title:"Google + OS X?"},
+"/2005/28/bra-skit": {path:"/post/1133082568/bra-skit",title:"Bra skit"},
+"/2005/14/spring-exhibiton": {path:"/post/1133082610/spring-exhibiton",title:"Spring exhibiton"},
+"/2005/22/crazy": {path:"/post/1133082652/crazy",title:"crazy"},
+"/2005/07/we-blog": {path:"/post/1133082697/we-blog",title:"we blog"},
+"/2005/05/hello-again": {path:"/post/1133082750/hello-again",title:"Hello, again"},
+"/2005/12/intro-to-ruby": {path:"/post/1133082786/intro-to-ruby",title:"Intro to Ruby"},
+"/2006/26/hello-welcome": {path:"/post/1133082842/hello-welcome",title:"Hello + Welcome"},
+"/2006/06/collected-illustrations": {path:"/post/1133082912/collected-illustrations",title:"Collected Illustrations"},
+"/2006/06/collected-logotypes": {path:"/post/1133082967/collected-logotypes",title:"Collected Logotypes"},
+"/2006/06/collected-offline-products": {path:"/post/1133083014/collected-offline-products",title:"Collected Offline products"},
+"/2006/10/sture-street-business-cards": {path:"/post/1133083072/sture-street-business-cards",title:"Sture Street Business cards"},
+"/2006/03/wallies-desktop-wallpapers": {path:"/post/1133083111/wallies-desktop-wallpapers",title:"Wallies, Desktop wallpapers"},
+"/2006/11/julie-wooh-desktop-wallpaper": {path:"/post/1133083161/julie-wooh-desktop-wallpaper",title:"Julie Wooh Desktop Wallpaper"},
+"/2006/05/threads-in-actionscript": {path:"/post/1133083206/threads-in-actionscript",title:"Threads in ActionScript"},
+"/2006/17/the-internets": {path:"/post/1133083252/the-internets",title:"The Internets"},
+"/2006/18/vista-a-new-skin-for-windows-2000": {path:"/post/1133083318/vista-a-new-skin-for-windows-2000",title:"Vista - a new skin for windows 2000"},
+"/2006/19/flickr-and-php": {path:"/post/1133083381/flickr-and-php",title:"Flickr and PHP"},
+"/2006/19/what-i-didnt-know-about-virtual-memory": {path:"/post/1133083452/what-i-didnt-know-about-virtual-memory",title:"What I didn't know about Virtual Memory"},
+"/2006/20/artliberated": {path:"/post/1133083499/artliberated",title:"Artliberated"},
+"/2006/25/clean-retarded-fun-frum-finland": {path:"/post/1133083559/clean-retarded-fun-frum-finland",title:"Clean retarded fun frum Finland"},
+"/2006/26/web-20-logotypes-frum-the-future": {path:"/post/1133083603/web-20-logotypes-frum-the-future",title:"Web 2.0 Logotypes frum the Future"},
+"/2006/27/top-21-php-progamming-mistakes": {path:"/post/1133083654/top-21-php-progamming-mistakes",title:"Top 21 PHP progamming mistakes"},
+"/2006/30/my-sassy-girl": {path:"/post/1133083699/my-sassy-girl",title:"My Sassy Girl"},
+"/2006/04/ok-go-here-it-goes-again": {path:"/post/1133083733/ok-go-here-it-goes-again",title:"OK Go - Here It Goes Again"},
+"/2006/14/sprayse-redesign": {path:"/post/1133083765/sprayse-redesign",title:"Spray.se redesign"},
+"/2006/21/black-screensaver-for-os-x": {path:"/post/1133083830/black-screensaver-for-os-x",title:"Black Screensaver for OS X"},
+"/2006/24/bobs-saft": {path:"/post/1133083874/bobs-saft",title:"Bob's Saft"},
+"/2006/29/science-world-ad": {path:"/post/1133083945/science-world-ad",title:"Science World AD"},
+"/2006/30/video-rewrite": {path:"/post/1133083983/video-rewrite",title:"Video Rewrite"},
+"/2006/10/faithful-camera": {path:"/post/1133084024/faithful-camera",title:"Faithful camera"},
+"/2006/11/nikon-d200-unpacking-ceremony": {path:"/post/1133084072/nikon-d200-unpacking-ceremony",title:"Nikon D200 Unpacking Ceremony"},
+"/2006/18/gu\u00f0leifsdottir-pictures-hit-reykjavik": {path:"/post/1133084120/gu-leifsdottir-pictures-hit-reykjavik",title:"Gu\u00f0leifsd\u00f3ttir-pictures hit Reykjav\u00edk"},
+"/2006/18/the-pragmatic-programmer": {path:"/post/1133084179/the-pragmatic-programmer",title:"The Pragmatic Programmer"},
+"/2006/24/laser-cats": {path:"/post/1133084232/laser-cats",title:"Laser Cats"},
+"/2006/01/this-seasons-first-snow": {path:"/post/1133084285/this-seasons-first-snow",title:"This seasons first snow"},
+"/2006/06/leaked-pictures-of-nikon-d40": {path:"/post/1133084333/leaked-pictures-of-nikon-d40",title:"Leaked Pictures of Nikon D40"},
+"/2006/12/office-space-horror-trailer": {path:"/post/1133084363/office-space-horror-trailer",title:"Office Space Horror Trailer"},
+"/2006/12/take-a-look-at-my-helmet": {path:"/post/1133084400/take-a-look-at-my-helmet",title:"Take A Look At My Helmet"},
+"/2006/24/tunga-insatsstyrkor-kravs-mot-slug-norsk-baver": {path:"/post/1133084458/tunga-insatsstyrkor-kravs-mot-slug-norsk-baver",title:"Tunga insatsstyrkor kr\u00e4vs mot slug norsk b\u00e4ver"},
+"/2006/27/whiteboard-stop-motion-music-video": {path:"/post/1133084654/whiteboard-stop-motion-music-video",title:"Whiteboard Stop Motion Music Video"},
+"/2007/20/parlplatta-aka-plastic-beads": {path:"/post/1133084810/parlplatta-aka-plastic-beads",title:"P\u00e4rlplatta aka Plastic Beads"},
+"/2007/20/wordpress-here-i-come": {path:"/post/1133084872/wordpress-here-i-come",title:"Wordpress, here I come"},
+"/2007/22/remote-backup-using-rsync": {path:"/post/1133084935/remote-backup-using-rsync",title:"Remote Backup Using rsync"},
+"/2007/23/world-cup-logo-protest-from-africa": {path:"/post/1133084981/world-cup-logo-protest-from-africa",title:"World Cup logo protest from Africa"},
+"/2007/24/screensaver-for-typography-lovers": {path:"/post/1133085030/screensaver-for-typography-lovers",title:"Screensaver for Typography Lovers"},
+"/2007/27/a-clean-slate-for-my-desktops": {path:"/post/1133085077/a-clean-slate-for-my-desktops",title:"A Clean Slate for my Desktops"},
+"/2007/28/lite-oscar-wilde": {path:"/post/1133085126/lite-oscar-wilde",title:"Lite Oscar Wilde"},
+"/2007/05/d-lite-field-test": {path:"/post/1133085180/d-lite-field-test",title:"D-Lite Field Test"},
+"/2007/05/happy-easter": {path:"/post/1133085249/happy-easter",title:"Happy Easter"},
+"/2007/21/aperture-153-released": {path:"/post/1133085686/aperture-153-released",title:"Aperture 1.5.3 Released"},
+"/2007/21/ganster-arets-kanske-samsta-film": {path:"/post/1133085999/ganster-arets-kanske-samsta-film",title:"Gangster - \u00c5rets kanske s\u00e4msta film"},
+"/2007/22/changing-upload-path-in-wordpress": {path:"/post/1133086037/changing-upload-path-in-wordpress",title:"Changing upload path in Wordpress"},
+"/2007/05/flickr-uploadr-finally-universal-binary": {path:"/post/1133086074/flickr-uploadr-finally-universal-binary",title:"Flickr Uploadr finally Universal Binary"},
+"/2007/06/a-dive-into-python-fastcgi-and-lighttpd": {path:"/post/1133086125/a-dive-into-python-fastcgi-and-lighttpd",title:"A dive into Python, FastCGI and Lighttpd"},
+"/2007/07/we-have-let-spotify-out-of-its-cage": {path:"/post/1133086191/we-have-let-spotify-out-of-its-cage",title:"We have let Spotify out of it's cage"},
+"/2007/15/thank-you-and-good-bye-jpg-magazine": {path:"/post/1133086222/thank-you-and-good-bye-jpg-magazine",title:"Thank you and good bye, JPG Magazine"},
+"/2007/17/jacobslagenhet-goes-pink": {path:"/post/1133086260/jacobslagenhet-goes-pink",title:"Jacobsl\u00e4genhet goes Pink"},
+"/2007/03/play-a-video-game-symphony": {path:"/post/1133086330/play-a-video-game-symphony",title:"Play! A Video Game Symphony"},
+"/2007/04/being-synchronized": {path:"/post/1133086411/being-synchronized",title:"Being synchronized"},
+"/2007/05/lameres-view-of-music-20-offices": {path:"/post/1133086445/lameres-view-of-music-20-offices",title:"Lameres' view of Music 2.0 Offices"},
+"/2007/11/first-release-of-py-fcgi": {path:"/post/1133086484/first-release-of-py-fcgi",title:"First release of py-fcgi"},
+"/2007/11/monaco-inconsolata-and-panic-sans": {path:"/post/1133086537/monaco-inconsolata-and-panic-sans",title:"Monaco, Inconsolata and Panic Sans"},
+"/2007/21/debain-day-2007-presents-spotify": {path:"/post/1133086585/debain-day-2007-presents-spotify",title:"Debain Day 2007 presents Spotify"},
+"/2007/21/happy-midsummer": {path:"/post/1133086669/happy-midsummer",title:"Happy Midsummer!"},
+"/2007/25/madness-is-good-for-you": {path:"/post/1133086711/madness-is-good-for-you",title:"Madness is Good For You"},
+"/2007/26/spotify-has-moved": {path:"/post/1133086747/spotify-has-moved",title:"Spotify has moved"},
+"/2007/18/an-introduction-to-spotify-uris": {path:"/post/1133086804/an-introduction-to-spotify-uris",title:"An Introduction to Spotify URI:s"},
+"/2007/01/short-documentary-on-photographer-jeff-mermelstein": {path:"/post/1133086849/short-documentary-on-photographer-jeff-mermelstein",title:"Short documentary on photographer Jeff Mermelstein"},
+"/2007/21/a-most-peculiar-night": {path:"/post/1133086929/a-most-peculiar-night",title:"A Most Peculiar Night"},
+"/2007/06/a-new-alternative-to-raw-photography-\u2013-capture-one-4": {path:"/post/1133086998/a-new-alternative-to-raw-photography-capture-one-4",title:"Alternative to RAW development \u2013 Capture One 4"},
+"/2007/23/goodbye-gaia-hello-hal": {path:"/post/1133087046/goodbye-gaia-hello-hal",title:"Goodbye Gaia, hello HAL"},
+"/2007/25/google-mail-imap-and-apple-mail": {path:"/post/1133087113/google-mail-imap-and-apple-mail",title:"Google Mail, IMAP and Apple Mail"},
+"/2007/27/mac-os-x-v5-aka-leopard": {path:"/post/1133087173/mac-os-x-v5-aka-leopard",title:"Mac OS X v5, aka Leopard"},
+// unreadable (from tumblr API)  2008/01/19-date-os-x-menu-extra
+"/2008/21/microsoft-office-2008-for-mac": {path:"/post/1111973766/microsoft-office-2008-for-mac",title:"Microsoft Office 2008 for Mac"},
+"/2008/21/the-library-of-congress-at-flickr": {path:"/post/1111974109/the-library-of-congress-at-flickr",title:"The Library of Congress at Flickr"},
+"/2008/30/collaborative-playlists": {path:"/post/1111974813/collaborative-playlists",title:"Collaborative Playlists"},
+"/2008/30/leica-m-upgrade-kits-instead-of-new-cameras": {path:"/post/1111975464/leica-m-upgrade-kits-instead-of-new-cameras",title:"Leica M upgrade kits instead of new cameras"},
+"/2008/01/dropbox-url-helper": {path:"/post/1111976106/dropbox-url-helper",title:"Dropbox URL helper"},
+"/2008/12/apple-announces-aperture-2": {path:"/post/1111976824/apple-announces-aperture-2",title:"Apple Announces Aperture 2"},
+"/2008/23/first-visit-to-nyc-klm-and-lost-baggage": {path:"/post/1111977278/first-visit-to-nyc-klm-and-lost-baggage",title:"First visit to NYC, KLM and lost baggage"},
+"/2008/27/stuff-for-iphone": {path:"/post/1111977692/stuff-for-iphone",title:"Stuff for iPhone"},
+"/2008/13/chernobyl-legacy": {path:"/post/1111978088/chernobyl-legacy",title:"Chernobyl Legacy"},
+"/2008/20/all-the-time-in-the-world": {path:"/post/1111978447/all-the-time-in-the-world",title:"All The Time in The World"},
+"/2008/20/from-camino-to-safari-and-easy-delicious-tagging": {path:"/post/1111978907/from-camino-to-safari-and-easy-delicious-tagging",title:"From Camino to Safari and easy Del.icio.us tagging"},
+"/2008/20/philip-jones-griffiths-1936-2008": {path:"/post/1111979220/philip-jones-griffiths-1936-2008",title:"Philip Jones Griffiths 1936-2008"},
+"/2008/31/new-hunch-blog": {path:"/post/1111979508/new-hunch-blog",title:"New Hunch blog"},
+"/2008/02/gyre": {path:"/post/1111979846/gyre",title:"Gyre"},
+"/2008/04/muxtape-fur-alles": {path:"/post/1111980134/muxtape-fur-alles",title:"Muxtape f\u00fcr alles"},
+"/2008/07/the-entire-1980s-in-three-minutes": {path:"/post/1111980369/the-entire-1980s-in-three-minutes",title:"The Entire 1980s in Three Minutes"},
+"/2008/12/say-it-in-d": {path:"/post/1111980698/say-it-in-d",title:"Say it in D"},
+// unreadable (from tumblr API)  2008/04/15-the-rather-difficult-font-game
+// unreadable (from tumblr API)  2008/04/27-tango-0996
+// unreadable (from tumblr API)  2008/04/30-d-and-textmate
+"/2008/04/extending-xcode": {path:"/post/1121194691/extending-xcode",title:"Extending Xcode"},
+"/2008/06/portrait-of-per": {path:"/post/1121194747/portrait-of-per",title:"Portrait of Per"},
+"/2008/12/smisk-10": {path:"/post/1121194800/smisk-10",title:"Smisk 1.0"},
+"/2008/16/amazon-clips-widget": {path:"/post/1121194851/amazon-clips-widget",title:"Amazon Clips Widget"},
+"/2008/22/apple-mac-music-video": {path:"/post/1121194873/apple-mac-music-video",title:"Apple Mac Music Video"},
+"/2008/30/live-advertising-on-tv": {path:"/post/1121194918/live-advertising-on-tv",title:"Live Advertising on TV"},
+"/2008/01/life-i-love-you": {path:"/post/1121194954/life-i-love-you",title:"Life, I love you"},
+"/2008/01/syntax-highlighting-in-wordpress": {path:"/post/1121194992/syntax-highlighting-in-wordpress",title:"Syntax Highlighting in Wordpress"},
+"/2008/03/flight-patterns-visualization": {path:"/post/1121195029/flight-patterns-visualization",title:"Flight Patterns Visualization"},
+"/2008/04/how-to-make-bread": {path:"/post/1121195066/how-to-make-bread",title:"How to make bread"},
+"/2008/09/music-is-identity": {path:"/post/1121195115/music-is-identity",title:"Music is Identity"},
+"/2008/09/nude-remix-by-james-houston": {path:"/post/1121195157/nude-remix-by-james-houston",title:"Nude Remix by James Houston"},
+"/2008/19/swedish-midsummer": {path:"/post/1121195186/swedish-midsummer",title:"Swedish Midsummer"},
+"/2008/21/imac-24": {path:"/post/1121195246/imac-24",title:"iMac 24\""},
+"/2008/24/tvcjunkyard-movie-released": {path:"/post/1121195291/tvcjunkyard-movie-released",title:"TVC/Junkyard Movie Released"},
+"/2008/27/martin-the-tailor": {path:"/post/1121195336/martin-the-tailor",title:"Martin the Tailor"},
+"/2008/02/dnse-for-iphone": {path:"/post/1121195373/dnse-for-iphone",title:"DN.se for iPhone"},
+"/2008/06/reliable-sms-services": {path:"/post/1121195422/reliable-sms-services",title:"Reliable SMS services?"},
+"/2008/10/improv-everywhere": {path:"/post/1121195467/improv-everywhere",title:"Improv Everywhere"},
+"/2008/10/love-me-sexy": {path:"/post/1121195504/love-me-sexy",title:"Love Me Sexy"},
+"/2008/11/noko-jeans": {path:"/post/1121195652/noko-jeans",title:"Noko Jeans"},
+"/2008/15/house-of-cards-by-radiohead": {path:"/post/1121195695/house-of-cards-by-radiohead",title:"House of Cards by Radiohead"},
+"/2008/23/devendra-banhart-carmensita": {path:"/post/1121195731/devendra-banhart-carmensita",title:"Devendra Banhart \u2013 Carmensita"},
+"/2008/24/if-typefaces-were-people": {path:"/post/1121195760/if-typefaces-were-people",title:"If Typefaces were People"},
+"/2008/30/hong-kong": {path:"/post/1121195812/hong-kong",title:"Hong Kong"},
+"/2008/05/britain-visualized-from-above": {path:"/post/1121195850/britain-visualized-from-above",title:"Britain visualized from above"},
+"/2008/07/surfstation-is-back": {path:"/post/1121195888/surfstation-is-back",title:"Surfstation is back"},
+"/2008/08/olympic-games-in-pictures": {path:"/post/1121195929/olympic-games-in-pictures",title:"Olympic Games in Pictures"},
+"/2008/11/like-it-or-not": {path:"/post/1121195961/like-it-or-not",title:"Architecture in Helsinki \u2013 Like It Or Not"},
+"/2008/11/the-old-house-and-the-sea": {path:"/post/1121195994/the-old-house-and-the-sea",title:"The Old House and the Sea"},
+"/2008/13/cut-chemist-1st-big-break": {path:"/post/1121196050/cut-chemist-1st-big-break",title:"Cut Chemist \u2013 1st Big Break"},
+"/2008/13/google-trends-\u2013-the-big-picture": {path:"/post/1121196139/google-trends-the-big-picture",title:"Google Trends \u2013 The Big Picture"},
+"/2008/14/eboy-on-future-arla-milk-dispensers": {path:"/post/1121196182/eboy-on-future-arla-milk-dispensers",title:"eBoy on future Arla milk dispensers"},
+"/2008/14/hunch-aggregator": {path:"/post/1121196228/hunch-aggregator",title:"Hunch Aggregator"},
+"/2008/15/there-will-be-jeans": {path:"/post/1121196264/there-will-be-jeans",title:"There Will Be Jeans"},
+"/2008/26/adium-13-with-spotify-support": {path:"/post/1121196304/adium-13-with-spotify-support",title:"Adium 1.3 with Spotify-support"},
+"/2008/28/reading-a-book": {path:"/post/1121196348/reading-a-book",title:"Reading a Book"},
+"/2008/30/shabash": {path:"/post/1121196400/shabash",title:"Shabash!"},
+"/2008/07/hunch-timeline": {path:"/post/1121196449/hunch-timeline",title:"Hunch Timeline"},
+"/2008/08/ed-rondthaler-and-the-english-language": {path:"/post/1121196484/ed-rondthaler-and-the-english-language",title:"Ed Rondthaler and the English language"},
+"/2008/12/sa-godt-som-hjemme": {path:"/post/1121196583/sa-godt-som-hjemme",title:"S\u00e5 Godt Som Hjemme"},
+"/2008/15/fred-wilsons-web-20-nyc-slides": {path:"/post/1121196619/fred-wilsons-web-20-nyc-slides",title:"Fred Wilsons Web 2.0 NYC Slides"},
+"/2008/16/bon-redesign-hit-the-shelves": {path:"/post/1121196644/bon-redesign-hit-the-shelves",title:"BON redesign hit the shelves"},
+"/2008/29/america-the-gift-shop": {path:"/post/1121196677/america-the-gift-shop",title:"America the Gift Shop"},
+"/2008/29/church-and-bass": {path:"/post/1121196712/church-and-bass",title:"Church and Bass"},
+"/2008/07/spotify-official-release": {path:"/post/1121196764/spotify-official-release",title:"Spotify Official Release"},
+"/2008/15/irena-zablotska": {path:"/post/1121196804/irena-zablotska",title:"Irena Zablotska"},
+"/2008/15/powerwise": {path:"/post/1121196829/powerwise",title:"Powerwise"},
+"/2008/15/sean-freeman": {path:"/post/1121196867/sean-freeman",title:"Sean Freeman"},
+"/2008/23/technorati-state-of-the-blogosphere": {path:"/post/1121196904/technorati-state-of-the-blogosphere",title:"Technorati: State of the Blogosphere"},
+"/2008/28/the-hidden-cost-of-war": {path:"/post/1121196950/the-hidden-cost-of-war",title:"The Hidden Cost of War"},
+"/2008/29/the-designers-standard-wet-dream": {path:"/post/1121196987/the-designers-standard-wet-dream",title:"The designers' standard wet dream"},
+"/2008/07/lumbergh-creative": {path:"/post/1121197034/lumbergh-creative",title:"Lumbergh Creative"},
+"/2008/13/facebook-support-in-adium": {path:"/post/1121197068/facebook-support-in-adium",title:"Facebook support in Adium"},
+"/2008/13/wordpress-showcases-spotify": {path:"/post/1121197105/wordpress-showcases-spotify",title:"Wordpress showcases Spotify.com"},
+"/2008/24/smisk-in-spotify": {path:"/post/1121197151/smisk-in-spotify",title:"Smisk in Spotify"},
+"/2008/02/peace-love-spotify": {path:"/post/1121200903/peace-love-spotify",title:"Peace & Love & Spotify"},
+"/2008/02/universal-presence-pipe": {path:"/post/1121200959/universal-presence-pipe",title:"Universal presence pipe"},
+"/2008/03/colorsapp": {path:"/post/1121201043/colorsapp",title:"Colors.app"},
+"/2008/03/the-give-hope-movement": {path:"/post/1121201110/the-give-hope-movement",title:"The Give Hope Movement"},
+"/2008/03/typographical-interpretation-of-max-ernst": {path:"/post/1121201185/typographical-interpretation-of-max-ernst",title:"Typographical interpretation of Max Ernst"},
+"/2008/08/google-reader-ui-update": {path:"/post/1121201243/google-reader-ui-update",title:"Google Reader UI update"},
+"/2008/15/an-ode-to-coffee": {path:"/post/1121201285/an-ode-to-coffee",title:"An ode to Coffee"},
+"/2008/19/smisk-1-1": {path:"/post/1121201324/smisk-1-1",title:"Smisk 1.1 released"},
+"/2009/02/2008-retrospective": {path:"/post/1102105629/2008-retrospective",title:"2008 retrospective"},
+"/2009/05/a-message-from-india": {path:"/post/1102105662/a-message-from-india",title:"A message from India"},
+"/2009/07/espressos-css-based-themes": {path:"/post/1102105703/espressos-css-based-themes",title:"Espressos' CSS-based themes"},
+"/2009/08/book-cover-archive": {path:"/post/1102105738/book-cover-archive",title:"Book cover archive"},
+"/2009/09/history-of-visual-communication": {path:"/post/1102105770/history-of-visual-communication",title:"History of visual communication"},
+"/2009/09/human-version-of-spotify": {path:"/post/1102105807/human-version-of-spotify",title:"Human version of Spotify"},
+"/2009/12/metal-heart": {path:"/post/1102105833/metal-heart",title:"Metal Heart"},
+"/2009/14/adbusting-the-boring": {path:"/post/1102105855/adbusting-the-boring",title:"Adbusting the boring"},
+"/2009/05/aesthetics": {path:"/post/1102105889/aesthetics",title:"Aesthetics"},
+"/2009/05/starring-becomes-syrup": {path:"/post/1102105924/starring-becomes-syrup",title:"Starring \u2192 Syrup"},
+"/2009/10/google-hosted-synchronization": {path:"/post/1102105948/google-hosted-synchronization",title:"Google hosted synchronization"},
+"/2009/20/war-declared-on-ie6": {path:"/post/1102105976/war-declared-on-ie6",title:"War declared on IE6"},
+"/2009/24/bambuser-post-patching-dropped-frames": {path:"/post/1102106016/bambuser-post-patching-dropped-frames",title:"Bambuser post-patching dropped frames"},
+"/2009/28/tokyo-cabinet": {path:"/post/1102106058/tokyo-cabinet",title:"Tokyo Cabinet"},
+"/2009/02/tokyo-cabinet-python-bindings": {path:"/post/1102106108/tokyo-cabinet-python-bindings",title:"Tokyo Cabinet Python bindings"},
+"/2009/21/white-pearl": {path:"/post/1102106141/white-pearl",title:"White Pearl"},
+"/2009/07/write-your-own-spotify-client": {path:"/post/1102106175/write-your-own-spotify-client",title:"Write your own Spotify client"},
+// unreadable (from tumblr API)  2009/05/16-a-promise-of-sharing
+"/2009/27/spotify-on-the-android": {path:"/post/1102106232/spotify-on-the-android",title:"Spotify on the Android"},
+// unreadable (from tumblr API)  2020/09/12-sandbox
+"/2009/10/10k-comet-connections": {path:"/post/1102104542/10k-comet-connections",title:"10 000 comet connections"},
+"/2009/10/dont-push-the-button": {path:"/post/1102104578/dont-push-the-button",title:"Don't push the button"},
+"/2009/10/first-ever-spotify-commercial-tv-ad": {path:"/post/1102104681/first-ever-spotify-commercial-tv-ad",title:"First ever Spotify commercial TV ad"},
+"/2009/10/gitblog-says-it-in-markdown": {path:"/post/1102104716/gitblog-says-it-in-markdown",title:"Gitblog says it in Markdown"},
+"/2009/10/happy-birthday-spotify-app": {path:"/post/1102105066/happy-birthday-spotify-app",title:"Happy birthday, Spotify.app!"},
+"/2009/10/improving-spotify-installation-experience": {path:"/post/1102105108/improving-spotify-installation-experience",title:"Improving the Spotify installation experience"},
+"/2009/10/post-manager-in-gitblog": {path:"/post/1102105142/post-manager-in-gitblog",title:"Manage posts in Gitblog web admin UI"},
+// unreadable (from tumblr API)  2009/11-comic-sans
+"/2009/11/easy-data-visualization-with-webkit": {path:"/post/1102105223/easy-data-visualization-with-webkit",title:"Easy data visualization with WebKit"},
+"/2009/11/take-a-screenshot-paste-the-url": {path:"/post/1102105253/take-a-screenshot-paste-the-url",title:"Take a screenshot, paste the URL"},
+"/2009/12/large-scale-distributed-processing-using-javascript": {path:"/post/1102105292/large-scale-distributed-processing-using-javascript",title:"Large-scale distributed processing on the web"},
+// unreadable (from tumblr API)  2010/02-beautiful-packaging-from-chocolate-organiko
+"/2010/04/dropular-released": {path:"/post/1102106282/dropular-released",title:"New Dropular released"},
+"/2010/04/ephemicropolis": {path:"/post/1102106327/ephemicropolis",title:"Ephemicropolis"},
+"/2010/04/music-hack-day-amsterdam": {path:"/post/1102106370/music-hack-day-amsterdam",title:"Music Hack day, Amsterdam"},
+"/2010/04/spotify-next-generation": {path:"/post/1102106421/spotify-next-generation",title:"Spotify next generation"},
+"/2010/04/tedx-in-stockholm-on-visual-impact": {path:"/post/1102106454/tedx-in-stockholm-on-visual-impact",title:"TEDx in Stockholm on visual impact"},
+"/2010/04/tedx-viggbyholm-stockholm": {path:"/post/1102106477/tedx-viggbyholm-stockholm",title:"TEDx Viggbyholm, Stockholm"},
+"/2010/06/moving-on": {path:"/post/1102106518/moving-on",title:"I'm moving on"},
+"/2010/08/cleaning-up-your-spotify-playlists": {path:"/post/1134423123/cleaning-up-your-spotify-playlists",title:"Cleaning up your Spotify playlists"}
+        };
+        var info = old_paths[document.location.pathname];
+        if (info) {
+          document.location.pathname = info.path;
+        }
+      }
+      var h1s = first_post.getElementsByTagName('h1');
+      outer_loop:
+      for (var i=0;i<h1s.length; i++) {
+        var e = h1s.item(i);
+        if (e.className === 'title') {
+          for (var x=0,cn2=e.childNodes;x<cn2.length; x++) {
+            var e2 = cn2.item(x);
+            if (e2.nodeName === 'A' && e2.getAttribute('href') === '') {
+              on404(e);
+              break outer_loop;
+            }
+          }
+        }
+      }
+      {/block:PostTitle}
+
+    })();
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-9078556-2']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+                                                         : 'http://www') +
+                 '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
