@@ -382,6 +382,15 @@
 
       {CustomCSS}
     </style>
+    <script>
+      function loadScriptAsync(src) {
+        var s = document.createElement('script');
+        s.type = 'text/javascript'; s.async = true;
+        s.src = src;
+        var p = document.getElementsByTagName('script')[0]; 
+        p.parentNode.insertBefore(s, p);
+      }
+    </script>
   </head>
   <body>
     <div id="head">
@@ -527,52 +536,47 @@
 
 <!-- start disqus -->
 <script type="text/javascript">
-var disqus_shortname = 'hunch';
-var disqus_url = "{Permalink}";
-var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+  var disqus_shortname = 'hunch';
+  var disqus_url = "{Permalink}";
+  var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+  loadScriptAsync('http://disqus.com/forums/'+disqus_shortname+'/count.js');
+  (function(){
+  // this hack takes care of formatting # comments
+  var v = document.getElementsByClassName('dsq-comment-count');
+  var loaded = false;
+  var polle;
+  for (var i=0;i<v.length;i++) {
+    var e = v.item(i);
+    if (e.firstChild.nodeValue === '-') {
+      polle = e.firstChild;
+      break;
+    }
+  }
+  function onload() {
+    for (var i=0;i<v.length;i++) {
+      var e = v.item(i);
+      if (e.firstChild.nodeValue !== '0 and 0') {
+        var m = e.firstChild.nodeValue.split(' ');
+        e.firstChild.nodeValue = String(parseInt(m[0]) + parseInt(m[2]));
+        e.style.display = 'inline';
+      }
+    }
+  }
+  if (polle) {
+    var timer = setInterval(function(){
+      if (polle.nodeValue !== '-') { clearInterval(timer); onload(); }
+    },100);
+  }
+  })();
 </script>
 {block:Permalink}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_identifier = "{PostID}";
+  loadScriptAsync('http://'+disqus_shortname+'.disqus.com/embed.js');
 </script>
-<script src="http://hunch.disqus.com/embed.js" async="async"></script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hunch">comments powered by Disqus.</a></noscript>
 {/block:Permalink}
-<script src="http://disqus.com/forums/hunch/count.js" async="true"></script>
-<script>
-// this hack takes care of formatting # comments
-(function(){
-var v = document.getElementsByClassName('dsq-comment-count');
-var loaded = false;
-var polle;
-for (var i=0;i<v.length;i++) {
-  var e = v.item(i);
-  if (e.firstChild.nodeValue === '-') {
-    polle = e.firstChild;
-    break;
-  }
-}
-function onload() {
-  for (var i=0;i<v.length;i++) {
-    var e = v.item(i);
-    if (e.firstChild.nodeValue !== '0 and 0') {
-      var m = e.firstChild.nodeValue.split(' ');
-      e.firstChild.nodeValue = String(parseInt(m[0]) + parseInt(m[2]));
-      e.style.display = 'inline';
-    }
-  }
-}
-if (polle) {
-  var timer = setInterval(function(){
-    if (polle.nodeValue !== '-') {
-      clearInterval(timer);
-      onload();
-    }
-  },100);
-}
-})();
-</script>
 <!-- end disqus -->
 
       <div id="pagenav">
@@ -619,16 +623,10 @@ if (polle) {
           }
         }
       }
-      function loadScriptAsync(src) {
-        var s = document.createElement('script');
-        s.type = 'text/javascript'; s.async = true;
-        s.src = src;
-        var p = document.getElementsByTagName('script')[0]; 
-        p.parentNode.insertBefore(s, p);
-      }
       // anything to prettify?
       if (should_prettyprint) {
         window.PR_TAB_WIDTH = 2;
+        // Comment out or remove the following to disable Prettify
         loadScriptAsync(
             'http://static.tumblr.com/9njdies/asKl8skdk/prettify.js');
       }
@@ -703,8 +701,9 @@ if (polle) {
                 '/search/'+q+'/json?callback=on404_search_results&filter=text');
           };
         }
-        // This script will cause a redirect if the URL requested has moved
-        // (old blog to tumblr)
+        // This script will cause a redirect if the URL requested has moved.
+        // Probably only interesting if you are me, and not you... ehh.
+        // Comment-out or remove the following to disable redirection
         loadScriptAsync(
             'http://hunch.se/stuff/hunch-digest-blog-archive/path-redirect.js');
       }
