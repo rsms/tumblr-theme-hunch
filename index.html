@@ -136,6 +136,16 @@
             color:#302400;
             text-decoration:none;
           }
+          div.post div.body p.redirect-message {
+            position:absolute; left:0; top:0; right:0; bottom:0;
+            margin:0; padding:0;
+            z-index:1336; /* #tumblr_controls lives at 1337 */
+            font: 2.2em 'Helvetica Neue', helvetica, sans-serif;
+            text-align: center;
+            padding-top: 4em;
+            color: #FF531A;
+            background-color: #fff; background-color: rgba(255,255,255, 0.9);
+          }
         div.post strong { font-weight:inherit; background:#FBF4B1; }
         div.post li { margin-left: 2em; margin-bottom:0.3em; }
         div.post ul > li { margin-left:1.4em; }
@@ -564,21 +574,47 @@ if (polle) {
       {block:PostTitle}
       // take care of 404
       function on404() {
-        // this script will cause a redirect if the URL requested has moved
+        var body, divs = first_post.getElementsByTagName('div');
+        for (var i=0;i<divs.length;i++) {
+          if (divs.item(i).className === 'body') {
+            window.on404_post_body = divs.item(i);
+            body = window.on404_post_body;
+            break;
+          }
+        }
+        if (body) {
+          var not_found_p = body.getElementsByTagName('p').item(0);
+          not_found_p.style.display = 'none';
+          var p = document.createElement('p');
+          p.className = 'redirect-message';
+          p.appendChild(document.createTextNode('Looking up new location...'));
+          body.appendChild(p);
+          window.on404_redirect_match = function(info) {
+            body.removeChild(p);
+          };
+          window.on404_redirect_nomatch = function() {
+            body.removeChild(p);
+            not_found_p.style.display = 'block';
+            body.className += ' not-found';
+          };
+        }
+        // This script will cause a redirect if the URL requested has moved
         // (old blog to tumblr)
         loadScriptAsync(
             'http://hunch.se/stuff/hunch-digest-blog-archive/path-redirect.js');
       }
-      var h1s = first_post.getElementsByTagName('h1');
-      outer_loop:
-      for (var i=0;i<h1s.length; i++) {
-        var e = h1s.item(i);
-        if (e.className === 'title') {
-          for (var x=0,cn2=e.childNodes;x<cn2.length; x++) {
-            var e2 = cn2.item(x);
-            if (e2.nodeName === 'A' && e2.getAttribute('href') === '') {
-              on404(e);
-              break outer_loop;
+      if (first_post) {
+        var h1s = first_post.getElementsByTagName('h1');
+        outer_loop:
+        for (var i=0;i<h1s.length; i++) {
+          var e = h1s.item(i);
+          if (e.className === 'title') {
+            for (var x=0,cn2=e.childNodes;x<cn2.length; x++) {
+              var e2 = cn2.item(x);
+              if (e2.nodeName === 'A' && e2.getAttribute('href') === '') {
+                on404(e);
+                break outer_loop;
+              }
             }
           }
         }
