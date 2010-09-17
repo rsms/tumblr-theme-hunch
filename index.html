@@ -27,6 +27,13 @@
     <meta charset="utf-8">
     <title>{block:PostTitle}{PostTitle} – {/block:PostTitle}{Title}</title>
     <meta name="description" content="{MetaDescription}">
+    {block:Permalink}
+    {block:Posts}
+    <meta name="DC.date" content="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">
+    <meta name="date" content="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">
+    <meta name="Last-Modified" content="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} +0100">
+    {/block:Posts}
+    {/block:Permalink}
     <link rel="shortcut icon" href="http://static.tumblr.com/9njdies/Crol8jema/signature.png">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <style type="text/css">
