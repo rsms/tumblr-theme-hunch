@@ -20,7 +20,7 @@
       body {
         background:white; color:#030303;
         font:13px 'M+ 1m', georgia, serif;
-        line-height:18px;
+        line-height:1.4;
         font-weight: lighter;
         margin: 0 auto;
         width: 640px;
@@ -146,6 +146,45 @@
             color: #FF531A;
             background-color: #fff; background-color: rgba(255,255,255, 0.9);
           }
+          div.post div.body.not-found {
+            min-height:550px;
+            background: transparent
+                url(http://static.tumblr.com/9njdies/9url8w7s4/404.png)
+                no-repeat scroll center bottom;
+          }
+            div.post div.body.not-found ol.search-results {
+              background-color: #fff;
+              list-style:none; padding-bottom:1em;
+            }
+              div.post div.body.not-found ol.search-results li {
+                margin-left:0; padding:1em 0;
+                border-top:1px solid #ddd;
+              }
+              div.post div.body.not-found ol.search-results .date {
+                display:inline-block; float:right;
+                padding-left:2em;
+                color: #999;
+              }
+              div.post div.body.not-found p.text-body,
+                  div.post div.body.not-found p.text-body-overlay {
+                margin-top:0.5em;
+                height: 40px;
+                overflow: hidden;
+                font:9px 'lucida grande', 'tahoma', sans-serif;
+                whitespace: pre;
+                color: #999;
+                z-index:1335;
+                margin-bottom:0;
+                margin-top:4px !important;
+              }
+              div.post div.body.not-found p.text-body-overlay {
+                position:relative; top:4px; left:0;
+                background: transparent
+            url(http://static.tumblr.com/9njdies/Nbtl8w9im/fade-to-white.png)
+                    repeat-x scroll left bottom;
+                z-index:1336;
+                margin-bottom:-40px;
+              }
         div.post strong { font-weight:inherit; background:#FBF4B1; }
         div.post li { margin-left: 2em; margin-bottom:0.3em; }
         div.post ul > li { margin-left:1.4em; }
@@ -596,6 +635,49 @@ if (polle) {
             body.removeChild(p);
             not_found_p.style.display = 'block';
             body.className += ' not-found';
+            // search, baby
+            window.on404_search_results = function(rsp) {
+              if (!rsp || !rsp.posts || rsp.posts.length == 0)
+                return;
+              var a, s, li, post, title, ol = document.createElement('ol');
+              ol.className = 'search-results';
+              not_found_p.innerHTML =
+                  'The URL you requested could not be found, but here are some'+
+                  ' suggestions:';
+              for (var i=0;i<rsp.posts.length;i++) {
+                post = rsp.posts[i];
+                li = document.createElement('li');
+                a = document.createElement('a');
+                a.href = post['url-with-slug'];
+                title = post['regular-title'];
+                if (!title)
+                  title = post.type + ' ('+post.slug.replace(/[-_]+/g, ' ')+')';
+                a.appendChild(document.createTextNode(title));
+                li.appendChild(a);
+
+                s = document.createElement('span');
+                s.className = 'date';
+                s.appendChild(document.createTextNode(post.date));
+                li.appendChild(s);
+
+                if (post['regular-body']) {
+                  s = document.createElement('p');
+                  s.className = 'text-body-overlay';
+                  s.innerHTML = '&nbsp;';
+                  li.appendChild(s);
+                  s = document.createElement('p');
+                  s.className = 'text-body';
+                  s.appendChild(document.createTextNode(post['regular-body']));
+                  li.appendChild(s);
+                }
+
+                ol.appendChild(li);
+              }
+              body.appendChild(ol);
+            }
+            var q = document.location.pathname.replace(/[\/_-]+/g, '+');
+            loadScriptAsync(
+                '/search/'+q+'/json?callback=on404_search_results&filter=text');
           };
         }
         // This script will cause a redirect if the URL requested has moved
