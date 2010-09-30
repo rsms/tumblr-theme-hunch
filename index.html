@@ -3,6 +3,9 @@
   <!--
   Hunch blog Tumblr theme <http://github.com/rsms/tumblr-theme-hunch>
 
+  See introduction blog post and installation instructions here:
+  <http://blog.hunch.se/post/1137689240/tumblr-theme>
+
   Copyright (c) 2010 Rasmus Andersson <http://hunch.se/>
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -543,7 +546,17 @@
 
 <!-- start disqus -->
 <script type="text/javascript">
+  // Disqus setup -- either remove everything between <!-- start disqus --> and
+  // <!-- end disqus --> OR follow the two steps below:
+  //
+  // Step 1: Replace 'hunch' with your Disqus forum "short name":
   var disqus_shortname = 'hunch';
+  // Step 2: Remove the following block ("if"..."}")
+  if (document.location.protocol !== 'file:' &&
+      document.location.hostname !== 'blog.hunch.se') {
+    alert('You need to set your Disqus short name in the variable' +
+          'disqus_shortname (or disable Disqus)');
+  }
   var disqus_url = "{Permalink}";
   var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
   loadScriptAsync('http://disqus.com/forums/'+disqus_shortname+'/count.js');
