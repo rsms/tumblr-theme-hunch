@@ -2,6 +2,16 @@
 
 This is the Tumblr theme for my blog.
 
+## Installation
+
+1. Edit index.html
+  1. Search for the string "start disqus" and configure Disqus as you see fit (disable or enter your Disqus shortname)
+  1. At the end of the file you will find a script block (first line should be "var _gaq = _gaq || [];") -- this is Google Analytics tracking. If you don't use Google Analytics, simply remove the script block. Otherwise, change the value of "_setAccount" to match your Analytics account id.
+2. Copy the full contents of index.html
+3. Paste it into "Theme" on <http://www.tumblr.com/customize>
+
+For a more detailed guide, please see <http://blog.hunch.se/post/1137689240/tumblr-theme>
+
 ## Disclaimer
 
 This repo is intended primarily for myself, so things might change at any time.
